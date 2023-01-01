@@ -74,7 +74,7 @@ const userController = {
          const accessToken = await jwt.sign(
             { userId: user._id },
             process.env.ACCESS_TOKEN_SECRET
-         );
+         ); 
          return res.status(200).json({
             success: true,
             message: "Login is successfully",

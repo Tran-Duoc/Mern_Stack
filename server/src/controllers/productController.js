@@ -1,8 +1,20 @@
 const Product = require("../models/productModel");
 
 const productController = {
-   getAllItem: async (req, res) => {
-      res.send("hello get all");
+   getItem: async (req, res) => {
+      try {
+         const product = await Product.find({ user: req.userId });
+         return res.status(200).json({
+            success: true,
+            message: "all item is here",
+            product,
+         });
+      } catch (error) {
+         res.status(500).json({
+            success: false,
+            message: error.message,
+         });
+      }
    },
    createItem: async (req, res) => {
       try {
@@ -67,6 +79,7 @@ const productController = {
             description: description,
             image: image,
             rating: rating,
+            user: req.userId,
          });
 
          await newProduct.save();
