@@ -113,10 +113,50 @@ const productController = {
          });
       }
    },
-   
+   updateProduct: async (req, res) => {
+      try {
+         const id = req.params.id;
+         const { name, price, description, image, rating } = req.body;
 
+         let updateProduct = {
+            name,
+            price,
+            description,
+            image,
+            rating,
+         };
 
+         const conditionWhenUpdateProduct = {
+            _id: id,
+            user: req.userId,
+         };
 
+         console.log(conditionWhenUpdateProduct);
+
+         updateProduct = await Product.findByIdAndUpdate(
+            conditionWhenUpdateProduct,
+            updateProduct,
+            { new: true }
+         );
+         if (!updateProduct) {
+            return res.status(404).json({
+               success: false,
+               message: "Update product failed",
+            });
+         }
+
+         return res.status(200).json({
+            success: true,
+            message: "Product updated successfully",
+            updateProduct,
+         });
+      } catch (error) {
+         return res.status(500).json({
+            success: false,
+            message: error.message,
+         });
+      }
+   },
 };
 
 module.exports = productController;
