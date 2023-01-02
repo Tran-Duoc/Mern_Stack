@@ -11,6 +11,10 @@ const verify = async (req, res, next) => {
             message: "Access token not found",
          });
       }
+
+      
+
+
       const decode = await jwt.decode(token, process.env.ACCESS_TOKEN_SECRET);
       req.userId = decode.userId;
       next();

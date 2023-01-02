@@ -16,6 +16,24 @@ const productController = {
          });
       }
    },
+   getAll: async (req, res) => {
+      const allItem = await Product.find();
+      res.status(200).json({
+         success: true,
+         message: "all items are here",
+         allItem,
+      });
+   },
+   getProduct: async (req, res) => {
+      const id = req.params.id;
+      const product = await Product.find({ _id: id });
+
+      return res.status(200).json({
+         success: true,
+         message: "product is here",
+         product,
+      });
+   },
    createItem: async (req, res) => {
       try {
          const { name, price, description, image, rating } = req.body;
@@ -95,6 +113,10 @@ const productController = {
          });
       }
    },
+   
+
+
+
 };
 
 module.exports = productController;

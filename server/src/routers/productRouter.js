@@ -5,6 +5,11 @@ const verify = require("../middlewares/middleware");
 
 router.get("/item", verify, productController.getItem);
 
+router.get("/item/:id", productController.getProduct)
+
+
+router.get("/item/all", productController.getAll);
+
 router.post("/create", verify, productController.createItem);
 
 module.exports = router;
