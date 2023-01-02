@@ -1,5 +1,5 @@
 const Product = require("../models/productModel");
-
+const User = require("../models/userModel");
 const productController = {
    getItem: async (req, res) => {
       try {
@@ -17,12 +17,19 @@ const productController = {
       }
    },
    getAll: async (req, res) => {
-      const allItem = await Product.find();
-      res.status(200).json({
-         success: true,
-         message: "all items are here",
-         allItem,
-      });
+      try {
+         const allItem = await Product.find();
+         return res.status(200).json({
+            success: true,
+            message: "all item is here",
+            allItem,
+         });
+      } catch (error) {
+         res.status(500).json({
+            success: false,
+            message: error.message,
+         });
+      }
    },
    getProduct: async (req, res) => {
       const id = req.params.id;
@@ -117,7 +124,8 @@ const productController = {
       try {
          const id = req.params.id;
          const { name, price, description, image, rating } = req.body;
-
+         const isAdmin = await User.findOne({ _id: req.userId });
+         console.log(isAdmin.admin);
          let updateProduct = {
             name,
             price,
@@ -132,7 +140,6 @@ const productController = {
          };
 
          console.log(conditionWhenUpdateProduct);
-
          updateProduct = await Product.findByIdAndUpdate(
             conditionWhenUpdateProduct,
             updateProduct,
@@ -156,6 +163,14 @@ const productController = {
             message: error.message,
          });
       }
+   },
+   deleteProduct: async (req, res) => {
+      try {
+         const id = req.params.id;
+         const deleteProduct = await Product.findByIdAndDelete({
+            _id: id,
+         });
+      } catch (error) {}
    },
 };
 

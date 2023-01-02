@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const userController = {
    register: async (req, res) => {
       try {
-         const { username, password } = req.body;
+         const { username, password, admin } = req.body;
          if (!username || !password) {
             return res.status(403).json({
                success: false,
@@ -26,14 +26,14 @@ const userController = {
          const newUser = new User({
             username: username,
             password: hashPassword,
+            admin: admin || false,
          });
          await newUser.save();
 
          const accessToken = await jwt.sign(
-            { userId: newUser._id },
+            { userId: newUser._id, admin: newUser.admin },
             process.env.ACCESS_TOKEN_SECRET
          );
-
          return res.status(200).json({
             success: true,
             message: "User saved successfully",
@@ -57,6 +57,7 @@ const userController = {
             });
          }
          const user = await User.findOne({ username: username });
+
          if (!user) {
             return res.status(403).json({
                success: false,
@@ -72,9 +73,9 @@ const userController = {
             });
          }
          const accessToken = await jwt.sign(
-            { userId: user._id },
+            { userId: user._id, admin: user.admin },
             process.env.ACCESS_TOKEN_SECRET
-         ); 
+         );
          return res.status(200).json({
             success: true,
             message: "Login is successfully",
