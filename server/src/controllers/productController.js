@@ -172,20 +172,38 @@ const productController = {
             _id: id,
          };
          console.log(conditionWhenDeleteProduct);
-         if (!id) {
-            return res.status(404).json({
-               success: false,
-               message: "Delete is false because  item not found",
-            });
-         }
 
          const deleteProduct = await Product.findOneAndRemove(
             conditionWhenDeleteProduct
          );
+         if (!deleteProduct) {
+            return res.status(404).json({
+               success: false,
+               message: "Product has deleted or cant searching item",
+            });
+         }
          return res.status(200).json({
             success: true,
             message: "Product deleted successfully",
             deleteProduct,
+         });
+      } catch (error) {
+         return res.status(500).json({
+            success: false,
+            message: error.message,
+         });
+      }
+   },
+   filterProduct: async (req, res) => {
+      try {
+         const objectId = { ...req.query };
+         console.log(objectId);
+         const items = await Product.find(objectId);
+         console.log(items);
+         return res.status(200).json({
+            success: true,
+            message: "get items successfully",
+            items,
          });
       } catch (error) {
          return res.status(500).json({

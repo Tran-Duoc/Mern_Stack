@@ -9,6 +9,8 @@ router.get("/item/:id", productController.getProduct);
 
 router.get("/all", productController.getAll);
 
+router.get("/filter", productController.filterProduct);
+
 router.post("/create", verify.verifyToken, productController.createItem);
 
 router.delete(
