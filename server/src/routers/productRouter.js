@@ -11,6 +11,12 @@ router.get("/all", productController.getAll);
 
 router.post("/create", verify.verifyToken, productController.createItem);
 
+router.delete(
+   "/delete/:id",
+   verify.verifyDelete,
+   productController.deleteProduct
+);
+
 router.put(
    "/item/update/:id",
    verify.verifyToken,

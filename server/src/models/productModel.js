@@ -12,6 +12,11 @@ const productModel = new Schema(
          default: 0,
          min: [0, "deposit cannot be negative"],
       },
+      where: {
+         type: String,
+         required: true,
+         default: "any where",
+      },
       image: {
          type: String,
       },

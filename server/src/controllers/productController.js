@@ -43,7 +43,7 @@ const productController = {
    },
    createItem: async (req, res) => {
       try {
-         const { name, price, description, image, rating } = req.body;
+         const { name, price, description, image, rating, where } = req.body;
 
          if (!name && !price && !description && !image && !rating) {
             return res.status(404).json({
@@ -101,6 +101,7 @@ const productController = {
          const newProduct = new Product({
             name: name,
             price: price,
+            where: where,
             description: description,
             image: image,
             rating: rating,
@@ -167,10 +168,31 @@ const productController = {
    deleteProduct: async (req, res) => {
       try {
          const id = req.params.id;
-         const deleteProduct = await Product.findByIdAndDelete({
+         const conditionWhenDeleteProduct = {
             _id: id,
+         };
+         console.log(conditionWhenDeleteProduct);
+         if (!id) {
+            return res.status(404).json({
+               success: false,
+               message: "Delete is false because  item not found",
+            });
+         }
+
+         const deleteProduct = await Product.findOneAndRemove(
+            conditionWhenDeleteProduct
+         );
+         return res.status(200).json({
+            success: true,
+            message: "Product deleted successfully",
+            deleteProduct,
          });
-      } catch (error) {}
+      } catch (error) {
+         return res.status(500).json({
+            success: false,
+            message: error.message,
+         });
+      }
    },
 };
 
