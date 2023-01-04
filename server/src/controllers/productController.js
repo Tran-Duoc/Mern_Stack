@@ -1,3 +1,4 @@
+const { Query } = require("mongoose");
 const Product = require("../models/productModel");
 const User = require("../models/userModel");
 const productController = {
@@ -196,10 +197,29 @@ const productController = {
    },
    filterProduct: async (req, res) => {
       try {
+         //? basic filtering
          const objectId = { ...req.query };
-         console.log(objectId);
-         const items = await Product.find(objectId);
-         console.log(items);
+         let excludedFields = ["sort", "page"];
+         excludedFields.forEach((element) => {
+            delete objectId[element];
+         });
+         //? 2 advanced filtering
+         let queryStr = JSON.stringify(objectId);
+         queryStr = queryStr.replace(
+            /\b(gte|gt|lte|lt)\b/g,
+            (match) => `$${match}`
+         );
+         let items = await Product.find(JSON.parse(queryStr));
+
+         //? 3 sorting
+         if (req.query.sort) {
+            console.log(req.query.sort);
+            const sortBy = req.query.sort.split(",").join(" ");
+            console.log(sortBy);
+            items = await Product.find(JSON.parse(queryStr)).sort(sortBy);
+         } else {
+         }
+
          return res.status(200).json({
             success: true,
             message: "get items successfully",
