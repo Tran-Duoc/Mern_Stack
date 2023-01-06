@@ -1,4 +1,3 @@
-const { Query } = require("mongoose");
 const Product = require("../models/productModel");
 const User = require("../models/userModel");
 const productController = {
@@ -8,6 +7,7 @@ const productController = {
          return res.status(200).json({
             success: true,
             message: "all item is here",
+            length: product.length,
             product,
          });
       } catch (error) {
@@ -23,6 +23,7 @@ const productController = {
          return res.status(200).json({
             success: true,
             message: "all item is here",
+            length: allItem.length,
             allItem,
          });
       } catch (error) {
@@ -132,6 +133,7 @@ const productController = {
             name,
             price,
             description,
+            where,
             image,
             rating,
          };
@@ -199,7 +201,7 @@ const productController = {
       try {
          //? basic filtering
          const objectId = { ...req.query };
-         let excludedFields = ["sort", "page"];
+         let excludedFields = ["sort", "page", "field"];
          excludedFields.forEach((element) => {
             delete objectId[element];
          });
@@ -218,10 +220,18 @@ const productController = {
             console.log(sortBy);
             items = await Product.find(JSON.parse(queryStr)).sort(sortBy);
          } else {
+            items = await Product.find(JSON.parse(queryStr)).sort("rating");
          }
 
+         //? pagination
+         const page = Number(req.query.page);
+         const limit = Number(req.query.limit);
+         const skip = (page - 1) * limit;
+         items = await Product.find({}).skip(skip).limit(limit);
+         
          return res.status(200).json({
             success: true,
+            length: items.length,
             message: "get items successfully",
             items,
          });
