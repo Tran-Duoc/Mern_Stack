@@ -1,3 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+   html {
+      font-family: "Rubik", sans-serif;
+   }
+
+   .text-link {
+      @apply px-[20px] py-[10px] hover:text-[#0a2472] duration-300 hover:bg-[#e9c46a] hover:rounded-2xl;
+   }
+   .btn {
+      @apply w-[150px] py-[10px] text-xl rounded-full text-[#0a2472] font-medium duration-300 hover:drop-shadow-2xl text-center;
+   }
+}
