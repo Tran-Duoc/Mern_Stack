@@ -1,19 +1,6 @@
 import React, { useState } from "react";
-import { BsCheckLg } from "react-icons/bs";
 import Select from "react-select";
 import { data_rating, data_price } from "../../data/dataFilter.js";
-import data from "../../data/dataSlider.js";
-
-const options = [
-   {
-      value: "item 1",
-      label: "Item 1",
-   },
-   {
-      value: "item 2",
-      label: "Item 2",
-   },
-];
 
 const MultipleSelect = () => {
    const [dataRating, setDataRating] = useState([]);
@@ -62,7 +49,7 @@ const MultipleSelect = () => {
             </div>
             <Select
                className="main-select"
-               options={options}
+               options={data_price}
                isClearable={true}
                isDisabled={false}
                isLoading={false}

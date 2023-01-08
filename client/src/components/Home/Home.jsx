@@ -4,7 +4,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
-import MultipleSelect from "../MultipleSelect/MultipleSelect";
 import CartProduct from "../CartProduct/CartProduct";
 
 const Home = ({ data }) => {
@@ -48,7 +47,6 @@ const Home = ({ data }) => {
                })}
             </Swiper>
          </div>
-         <MultipleSelect />
          <CartProduct />
       </>
    );
