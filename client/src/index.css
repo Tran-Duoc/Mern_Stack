@@ -15,4 +15,25 @@
    .btn {
       @apply w-[150px] py-[10px] text-xl rounded-full text-[#0a2472] font-medium duration-300 hover:drop-shadow-2xl text-center;
    }
+   .footer_title {
+      @apply text-3xl font-medium;
+   }
+   .footer_list {
+      @apply text-xl  font-light text-left mt-3;
+   }
+   .footer_item {
+      @apply m-1 font-normal  hover:text-[#ff9700] duration-300;
+   }
+   .footer_social {
+      @apply my-2;
+   }
+   .wrap_text {
+      @apply w-full bg-[#e9c46a] py-3 pl-3 rounded-3xl;
+   }
+   .text-select {
+      @apply text-2xl font-semibold text-[#253771];
+   }
+   .main-select {
+      @apply mt-5;
+   }
 }
