@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import MultipleSelect from "../MultipleSelect/MultipleSelect";
+import CartProduct from "../CartProduct/CartProduct";
 
 const Home = ({ data }) => {
    return (
@@ -38,7 +39,7 @@ const Home = ({ data }) => {
                            <span className="text-[40px] font-bold text-[#d62828] mb-3 py-2 drop-shadow-2xl uppercase">
                               {item.primary_title}
                            </span>
-                           <span className="text-[36px] font-semibold text-[#fb8500]">
+                           <span className="text-[36px] font-semibold text-[#fb8500] uppercase">
                               {item.secondary_title}
                            </span>
                         </div>
@@ -48,6 +49,7 @@ const Home = ({ data }) => {
             </Swiper>
          </div>
          <MultipleSelect />
+         <CartProduct />
       </>
    );
 };

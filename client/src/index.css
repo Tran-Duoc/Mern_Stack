@@ -31,9 +31,18 @@
       @apply w-full bg-[#e9c46a] py-3 pl-3 rounded-3xl;
    }
    .text-select {
-      @apply text-2xl font-semibold text-[#253771];
+      @apply text-2xl font-semibold text-[#253771] uppercase;
    }
    .main-select {
       @apply mt-5;
+   }
+   .icon {
+      @apply hover:bg-red-500 hover:rounded-full text-4xl p-2;
+   }
+   .cart-details {
+      @apply flex items-center justify-center flex-col text-xl;
+   }
+   .cart-text {
+      @apply text-sm pt-2;
    }
 }

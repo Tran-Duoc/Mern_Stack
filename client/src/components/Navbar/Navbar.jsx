@@ -5,11 +5,11 @@ const Navbar = () => {
    let admin = false;
 
    return (
-      <div className="flex items-center justify-between fixed top-0 left-0 right-0   bg-[#edf2f4] py-7 px-10 drop-shadow-2xl mx-[8%] my-5 rounded-3xl z-10">
+      <div className="grid grid-cols-[150px_auto_320px] fixed top-0 left-0 right-0   bg-[#edf2f4] py-7 px-10 drop-shadow-2xl mx-[8%] my-5 rounded-3xl z-10">
          <Link to="/">
             <MdOutlineRealEstateAgent className="text-5xl text-blue-600 font-medium" />
          </Link>
-         <nav className="text-xl flex gap-10 font-medium">
+         <nav className="text-xl flex gap-10 font-medium items-center justify-start">
             <Link to="/">
                <span className="text-link">Trang Chủ</span>
             </Link>
@@ -27,7 +27,7 @@ const Navbar = () => {
                ""
             )}
          </nav>
-         <div className="flex gap-10">
+         <div className="flex gap-4 items-center justify-center">
             <Link
                to="/login"
                className="btn bg-[#cfcfcf] hover:bg-[#e9c46a] hover:text-[#0a2472] "
