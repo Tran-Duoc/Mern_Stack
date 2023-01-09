@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { MdOutlineRealEstateAgent } from "react-icons/md";
 import { Link } from "react-router-dom";
-const Navbar = ({ setIsActive }) => {
+import { AppContext } from "../../assets/context/AppContect";
+const Navbar = () => {
    let admin = false;
+   const { setIsActive } = useContext(AppContext);
+
    const handleClick = () => {
       setIsActive(true);
       console.log("fnc is working");
    };
    return (
-      <div className="grid grid-cols-[150px_auto_320px] fixed top-0 left-0 right-0   bg-[#edf2f4] py-7 px-10 drop-shadow-2xl mx-[8%] my-5 rounded-3xl z-10">
+      <div className="grid grid-cols-[150px_auto_320px] fixed top-0 left-0 right-0   bg-[#edf2f4] py-7 px-10 drop-shadow-2xl mx-[8%] my-5 rounded-3xl z-10 ">
          <Link to="/">
             <MdOutlineRealEstateAgent className="text-5xl text-blue-600 font-medium" />
          </Link>
@@ -31,13 +34,12 @@ const Navbar = ({ setIsActive }) => {
             )}
          </nav>
          <div className="flex gap-4 items-center justify-center">
-            <Link
-               to="/login"
+            <button
                className="btn bg-[#cfcfcf] hover:bg-[#e9c46a] hover:text-[#0a2472] "
                onClick={handleClick}
             >
                Đăng nhập
-            </Link>
+            </button>
             <Link
                to="/register"
                className="btn bg-[#e9c46a] hover:bg-[#0a2472] hover:text-[#e9c46a]"

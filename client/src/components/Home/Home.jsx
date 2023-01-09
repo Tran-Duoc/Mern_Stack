@@ -5,11 +5,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import CartProduct from "../CartProduct/CartProduct";
-
 const Home = ({ data }) => {
    return (
       <>
-         <div className="h-[60vh] rounded-2xl overflow-hidden ">
+         <div className="h-[60vh] rounded-2xl overflow-hidden mt-8">
             <Swiper
                spaceBetween={30}
                centeredSlides={true}
