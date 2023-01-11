@@ -5,7 +5,7 @@ import { GrView } from "react-icons/gr";
 
 const CartProduct = () => {
    return (
-      <div className="mt-8 bg-[#edf2f4] py-7 px-10 drop-shadow-2xl rounded-2xl overflow-hidden ">
+      <div className="mt-8 bg-[#edf2f4]/80 py-7 px-10 drop-shadow-2xl rounded-2xl overflow-hidden ">
          <div className="w-80 h-full overflow-hidden rounded-2xl p-5 border-2 border-[#161f3d] relative group bg-[#f2f2f2]">
             <div className="flex w-full h-60 overflow-hidden group relative  ">
                <img

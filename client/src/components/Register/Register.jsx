@@ -1,20 +1,21 @@
 import React, { useContext } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { AppContext } from "../../assets/context/AppContect";
+import { AppContext } from "../context/AppContect";
 
-const Login = () => {
-   const { isActive, setIsActive } = useContext(AppContext);
+const Register = () => {
+   const { isActiveRes, setIsActiveRes } = useContext(AppContext);
 
-   let login = isActive ? "top-0 " : "top-[100vh]  ";
+   let login = isActiveRes ? "top-0 " : "top-[100vh]  ";
    const handleCloseTab = (e) => {
       console.log(e.target);
-      setIsActive(false);
+      setIsActiveRes(false);
    };
    const handleOutSide = (e) => {
       if (e.target === e.currentTarget) {
-         setIsActive(false);
+         setIsActiveRes(false);
       }
    };
+
    return (
       <div
          className={`fixed left-0 right-0 bottom-0  top-0 ${login} z-20 flex items-center justify-center bg-whit   
@@ -34,10 +35,10 @@ const Login = () => {
                }}
             />
             <span className="text-3xl font-medium text-[#e9c46a] uppercase text-center ">
-               đăng nhập tài khoản
+               đăng ký tài khoản
             </span>
             <label className="text-label" for="username">
-               Tên đăng nhập
+               Tên tài khoản
             </label>
             <input
                type="text"
@@ -54,12 +55,15 @@ const Login = () => {
                // value=""
                placeholder="Nhập vào mật khẩu"
             />
-            <button className="text-2xl font-medium text-white uppercase mt-5 bg-[#e9c46a] py-3 rounded-full">
-               Đăng nhập
+
+            <span className="mt-3 text-right ">Đăng nhập</span>
+
+            <button className="text-2xl font-medium text-white uppercase mt-2 bg-[#e9c46a] py-3 rounded-full">
+               Đăng Ký ngay
             </button>
          </form>
       </div>
    );
 };
 
-export default Login;
+export default Register;

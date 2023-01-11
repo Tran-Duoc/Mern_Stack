@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import CartProduct from "../CartProduct/CartProduct";
+import axios from "axios";
+
 const Home = ({ data }) => {
+   useEffect(() => {
+      const getData = async () => {
+         const data = await axios.get("http://localhost:8000/products/all");
+         return data;
+      };
+      getData().then((data) => {
+         console.log(data);
+      });
+   }, []);
+
    return (
       <>
          <div className="h-[60vh] rounded-2xl overflow-hidden mt-8">

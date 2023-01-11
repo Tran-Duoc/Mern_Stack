@@ -13,7 +13,7 @@
       @apply px-[20px] py-[10px] hover:text-[#0a2472] duration-300 hover:bg-[#e9c46a] hover:rounded-2xl;
    }
    .btn {
-      @apply w-[150px] py-[10px] text-xl rounded-full text-[#0a2472] font-medium duration-300 hover:drop-shadow-2xl text-center;
+      @apply w-[150px] py-[10px] text-xl rounded-full text-[#0a2472] font-medium duration-300 hover:drop-shadow-2xl text-center md:text-sm md:w-[100px];
    }
    .footer_title {
       @apply text-3xl font-medium;
@@ -50,5 +50,10 @@
    }
    .input {
       @apply py-3 px-5 rounded-full
+   }
+   .tablet {
+      @apply md:text-sm
+
+
    }
 }
