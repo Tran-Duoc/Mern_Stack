@@ -10,19 +10,19 @@
    }
 
    .text-link {
-      @apply px-[20px] py-[10px] hover:text-[#0a2472] duration-300 hover:bg-[#e9c46a] hover:rounded-2xl;
+      @apply px-[20px] py-[10px] hover:text-[#0a2472] duration-300 hover:bg-[#e9c46a] hover:rounded-3xl;
    }
    .btn {
-      @apply w-[150px] py-[10px] text-xl rounded-full text-[#0a2472] font-medium duration-300 hover:drop-shadow-2xl text-center md:text-sm md:w-[100px];
+      @apply w-[150px] py-[10px] text-sm rounded-full text-[#0a2472] font-medium duration-300 hover:drop-shadow-2xl text-center  md:w-[100px];
    }
    .footer_title {
-      @apply text-3xl font-medium;
+      @apply text-xl font-medium;
    }
    .footer_list {
-      @apply text-xl  font-light text-left mt-3;
+      @apply text-sm  font-light text-left mt-3;
    }
    .footer_item {
-      @apply m-1 font-normal  hover:text-[#ff9700] duration-300;
+      @apply my-2 font-normal  hover:text-[#ff9700] duration-300;
    }
    .footer_social {
       @apply my-2;
@@ -43,17 +43,18 @@
       @apply flex items-center justify-center flex-col text-xl;
    }
    .cart-text {
-      @apply text-sm pt-2;
+      @apply text-xs pt-2;
    }
    .text-label {
-      @apply text-xl  font-normal my-3;
+      @apply text-sm  font-normal my-3;
    }
    .input {
-      @apply py-3 px-5 rounded-full
+      @apply py-3 px-5 rounded-full;
    }
    .tablet {
-      @apply md:text-sm
-
-
+      @apply md:text-sm;
+   }
+   .dropdown {
+      @apply flex items-center  text-sm justify-between px-5 py-3 hover:bg-[#e9c46a]/80 duration-300 mx-3 rounded-full;
    }
 }

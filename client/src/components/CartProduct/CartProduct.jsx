@@ -26,7 +26,7 @@ const CartProduct = () => {
             </div>
 
             <div className=" drop-shadow-2xl  opacity-80 rounded-2xl mt-2 flex flex-col py-5 px-2">
-               <span className="text-center text-2xl font-medium  bg-[#edf2f4] shadow-2xl rounded-2xl mb-5 py-2">
+               <span className="text-center text-lg font-medium  bg-[#edf2f4] shadow-2xl rounded-2xl mb-5 py-2">
                   name
                </span>
 

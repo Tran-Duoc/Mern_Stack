@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { AppContext } from "../context/AppContect";
+import { AppContext } from "../context/AppContext";
 
 const Register = () => {
    const { isActiveRes, setIsActiveRes } = useContext(AppContext);

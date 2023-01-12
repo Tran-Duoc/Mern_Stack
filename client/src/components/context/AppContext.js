@@ -7,8 +7,9 @@ export const AppProvider = ({ children }) => {
    const [isActive, setIsActive] = useState(false);
    const [isActiveRes, setIsActiveRes] = useState(false);
    const [isMobile, setIsMobile] = useState(false);
+   const [dropdown, setDropdown] = useState(false);
    const [resize, setResize] = useState({
-      with: window.innerWidth,
+      width: window.innerWidth,
    });
    useEffect(() => {
       const handleResize = () => {
@@ -36,6 +37,8 @@ export const AppProvider = ({ children }) => {
             setIsActiveRes,
             resize,
             setResize,
+            dropdown,
+            setDropdown,
          }}
       >
          {children}

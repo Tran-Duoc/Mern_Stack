@@ -6,7 +6,7 @@ import { AiFillTwitterCircle, AiFillYoutube } from "react-icons/ai";
 const Footer = () => {
    return (
       <div className="flex flex-col bg-[#edf2f4] mt-8 overflow-hidden rounded-2xl text-center">
-         <div className="flex items-start justify-between text-left py-5 px-10" >
+         <div className="flex items-start justify-between text-left py-5 px-10">
             <div>
                <span className="footer_title">Hỗ trợ - dịch vụ</span>
                <ul className="footer_list">
@@ -32,7 +32,7 @@ const Footer = () => {
                </ul>
             </div>
             <div>
-               <div className="text-4xl" >
+               <div className="text-4xl">
                   <BsFacebook className="footer_social" />
                   <AiFillTwitterCircle className="footer_social" />
                   <AiFillYoutube className="footer_social" />
@@ -40,7 +40,7 @@ const Footer = () => {
                </div>
             </div>
          </div>
-         <div className="bg-[#e9c46a] mt-3 p-5 text-xm">
+         <div className="bg-[#e9c46a] mt-3 p-5 text-xs">
             <p className="mb-2">
                © 2020. BẤT ĐỘNG SẢN THÀNH TÂM. MST: 0106713191. (Đăng ký lần
                đầu: Ngày 15 tháng 12 năm 2014, Đăng ký thay đổi ngày 24/11/2022)

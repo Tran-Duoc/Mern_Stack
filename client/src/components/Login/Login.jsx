@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { AppContext } from "../context/AppContect";
+import { AppContext } from "../context/AppContext";
 
 const Login = () => {
    const { isActive, setIsActive } = useContext(AppContext);
@@ -57,7 +57,7 @@ const Login = () => {
 
             <span className="mt-3 text-right ">Đăng ký ngay</span>
 
-            <button className="text-2xl font-medium text-white uppercase mt-2 bg-[#e9c46a] py-3 rounded-full">
+            <button className="text-xl font-medium text-white uppercase mt-2 bg-[#e9c46a] py-3 rounded-full">
                Đăng nhập
             </button>
          </form>
