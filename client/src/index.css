@@ -57,4 +57,11 @@
    .dropdown {
       @apply flex items-center  text-sm justify-between px-5 py-3 hover:bg-[#e9c46a]/80 duration-300 mx-3 rounded-full;
    }
+   .detail {
+      @apply flex items-center text-lg mb-2
+
+   }
+   .detail-text{
+      @apply text-xl font-medium mr-3
+   }
 }

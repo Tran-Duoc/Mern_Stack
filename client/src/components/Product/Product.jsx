@@ -1,13 +1,13 @@
 import React from "react";
 
-import CartProduct from "../CartProduct/CartProduct";
+import CardProduct from "../CardProduct/CardProduct";
 import MultipleSelect from "../MultipleSelect/MultipleSelect";
 
 const Product = () => {
    return (
       <div>
          <MultipleSelect />
-         <CartProduct />
+         <CardProduct />
       </div>
    );
 };

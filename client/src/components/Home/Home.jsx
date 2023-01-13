@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
-import CartProduct from "../CartProduct/CartProduct";
+import CartProduct from "../CardProduct/CardProduct";
 import axios from "axios";
 
 const Home = ({ data }) => {

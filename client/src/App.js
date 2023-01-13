@@ -8,6 +8,7 @@ import Login from "./components/Login/Login";
 import { useContext } from "react";
 import { AppContext } from "./components/context/AppContext";
 import Register from "./components/Register/Register";
+import Detail from "./components/DetailProduct/Detail";
 function App() {
    const { isActive } = useContext(AppContext);
    const { isActiveRes } = useContext(AppContext);
@@ -19,6 +20,7 @@ function App() {
          <Routes>
             <Route path="/" element={<Home data={data} />} />
             <Route path="/product" element={<Product />} />
+            <Route path="/detail" element={<Detail />} />
          </Routes>
          <Footer />
          {isActive ? <Login /> : ""}
