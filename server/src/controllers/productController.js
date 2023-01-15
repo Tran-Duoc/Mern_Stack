@@ -86,7 +86,7 @@ const productController = {
                message: "The description is empty or very short",
             });
          }
-         if (!image || typeof image !== "string") {
+         if (!image) {
             return res.status(403).json({
                success: false,
                message: "The url image is not a string",
@@ -228,7 +228,7 @@ const productController = {
          const limit = Number(req.query.limit);
          const skip = (page - 1) * limit;
          items = await Product.find({}).skip(skip).limit(limit);
-         
+
          return res.status(200).json({
             success: true,
             length: items.length,

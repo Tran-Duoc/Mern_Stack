@@ -18,7 +18,7 @@ const productModel = new Schema(
          default: "any where",
       },
       image: {
-         type: String,
+         type: Array,
       },
       description: {
          type: String,
