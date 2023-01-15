@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createContext } from "react";
-
+import handler from "./handler";
 export const AppContext = createContext({});
 
 export const AppProvider = ({ children }) => {
@@ -8,6 +8,12 @@ export const AppProvider = ({ children }) => {
    const [isActiveRes, setIsActiveRes] = useState(false);
    const [isMobile, setIsMobile] = useState(false);
    const [dropdown, setDropdown] = useState(false);
+   const [isAdmin, setAdmin] = useState({
+      admin: false,
+      login: false,
+      username: "",
+   });
+   const { loginUser, getData } = handler;
    const [resize, setResize] = useState({
       width: window.innerWidth,
    });
@@ -36,9 +42,13 @@ export const AppProvider = ({ children }) => {
             isActiveRes,
             setIsActiveRes,
             resize,
+            loginUser,
+            getData,
             setResize,
             dropdown,
             setDropdown,
+            isAdmin,
+            setAdmin,
          }}
       >
          {children}

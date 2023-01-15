@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import Dropdown from "../Dropdown/Dropdown";
 const Navbar = () => {
-   let admin = true;
+   const { isAdmin, setAdmin } = useContext(AppContext);
    const { setIsActive } = useContext(AppContext);
    const { setIsActiveRes } = useContext(AppContext);
    const { dropdown, setDropdown } = useContext(AppContext);
-
+   const { admin, login, username } = isAdmin;
    const handleClick = () => {
       setIsActive(true);
    };
@@ -55,6 +55,10 @@ const Navbar = () => {
                <span className="flex items-center justify-start text-3xl ">
                   <BiUserCircle onClick={handleClickDropdown} />
                </span>
+            ) : login ? (
+               <div className="flex items-center justify-start">
+                  <span className="text-2xl ">Hello, {username}</span>
+               </div>
             ) : (
                <div className="flex gap-4 items-center justify-center md:gap-1 ">
                   <button

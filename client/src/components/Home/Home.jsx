@@ -1,23 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import CartProduct from "../CardProduct/CardProduct";
-import axios from "axios";
+import { AppContext } from "../context/AppContext";
+import { useState } from "react";
+import { BiCloudLightRain } from "react-icons/bi";
 
 const Home = ({ data }) => {
+   const { getData } = useContext(AppContext);
+   const [dataItem, setData] = useState([]);
    useEffect(() => {
-      const getData = async () => {
-         const data = await axios.get("http://localhost:8000/products/all");
-         return data;
-      };
       getData().then((data) => {
-         console.log(data);
+         if (data.request.status === 200) {
+            setData(data.data.items);
+         }
       });
    }, []);
-
    return (
       <>
          <div className="h-[60vh] rounded-2xl overflow-hidden mt-8">
@@ -58,7 +59,13 @@ const Home = ({ data }) => {
                })}
             </Swiper>
          </div>
-         <CartProduct />
+         <div className="mt-8 bg-[#edf2f4]/80 py-7 px-10 drop-shadow-2xl rounded-2xl overflow-hidden grid grid-cols-4   ">
+            {[...dataItem].map((item) => {
+               console.log(item);
+               return <CartProduct item={item} key={item._id} />;
+            })}
+            {/* <CartProduct   /> */}
+         </div>
       </>
    );
 };

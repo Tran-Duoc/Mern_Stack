@@ -7,7 +7,6 @@ const Product = () => {
    return (
       <div>
          <MultipleSelect />
-         <CardProduct />
       </div>
    );
 };
