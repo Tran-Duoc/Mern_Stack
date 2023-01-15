@@ -12,12 +12,12 @@ const CartProduct = ({ item }) => {
             <img
                src={image[0]}
                alt=""
-               className="object-cover bg-cover h-full w-full rounded-t-2xl  group-hover:opacity-70 duration-200 group-hover:scale-0 group-hover:rounded-full "
+               className="object-cover bg-cover h-full w-full rounded-t-2xl  group-hover:opacity-70 duration-200 group-hover:scale-0 group-hover:rounded-full pointer-events-none"
             />
             <img
                src={image[1]}
                alt=""
-               className=" object-cover bg-cover absolute  top-0  bottom-0 h-full w-full duration-[500ms]  rounded-t-2xl   -left-96 opacity-0 scale-0 group-hover:left-0 group-hover:opacity-100 group-hover:scale-100"
+               className=" object-cover bg-cover absolute  top-0  bottom-0 h-full w-full duration-[500ms]  rounded-t-2xl   -left-96 opacity-0 scale-0 group-hover:left-0 group-hover:opacity-100 group-hover:scale-100 pointer-events-none"
             />
             <div className="w-full  bg-[#edf2f4] px-5 py-2  absolute left-96 bottom-5 z-10 duration-[500ms] group-hover:left-0  flex gap-10 opacity-75  group-hover:rounded-3xl ">
                <RiShoppingCart2Line className="icon" />

@@ -34,7 +34,7 @@ const Navbar = () => {
                   <span className="text-link">Trang Chủ</span>
                </Link>
                <Link to="/product">
-                  <span className="text-link">Sản phẩm</span>
+                  <span className="text-link">Bất động sản</span>
                </Link>
                <Link to="/contact">
                   <span className="text-link">Liên Hệ</span>

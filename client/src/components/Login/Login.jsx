@@ -1,6 +1,5 @@
-import axios from "axios";
-import React, { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+
 import { useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { AppContext } from "../context/AppContext";
@@ -11,8 +10,6 @@ const Login = () => {
    const { loginUser } = useContext(AppContext);
    const [userName, setUserName] = useState("");
    const [password, setPassword] = useState("");
-
-   const navigate = useNavigate();
    let login = isActive ? "top-0 " : "top-[100vh]  ";
    const handleCloseTab = () => {
       setIsActive(false);

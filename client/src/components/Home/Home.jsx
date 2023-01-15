@@ -33,7 +33,6 @@ const Home = ({ data }) => {
                pagination={{
                   clickable: true,
                }}
-               navigation={true}
                modules={[Autoplay, Pagination, Navigation]}
                className="mySwiper w-full h-full"
             >
@@ -59,11 +58,47 @@ const Home = ({ data }) => {
                })}
             </Swiper>
          </div>
-         <div className="mt-8 bg-[#edf2f4]/80 py-7 px-10 drop-shadow-2xl rounded-2xl overflow-hidden grid grid-cols-4   ">
-            {[...dataItem].map((item) => {
-               console.log(item);
-               return <CartProduct item={item} key={item._id} />;
-            })}
+         <div className="mt-8 bg-[#edf2f4]/80 py-7 px-10 drop-shadow-2xl rounded-2xl     ">
+            <Swiper
+               slidesPerView={1}
+               spaceBetween={10}
+               pagination={{
+                  clickable: true,
+               }}
+               loop="true"
+               breakpoints={{
+                  "@0.00": {
+                     slidesPerView: 1,
+                     spaceBetween: 10,
+                  },
+                  "@0.75": {
+                     slidesPerView: 2,
+                     spaceBetween: 20,
+                  },
+                  "@1.00": {
+                     slidesPerView: 3,
+                     spaceBetween: 40,
+                  },
+                  "@1.50": {
+                     slidesPerView: 4,
+                     spaceBetween: 50,
+                  },
+               }}
+               autoplay={{
+                  delay: 3000,
+               }}
+               modules={[Pagination]}
+               className="mySwiper"
+            >
+               {[...dataItem].map((item) => {
+                  return (
+                     <SwiperSlide key={item._id}>
+                        <CartProduct item={item} />
+                     </SwiperSlide>
+                  );
+               })}
+            </Swiper>
+
             {/* <CartProduct   /> */}
          </div>
       </>

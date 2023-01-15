@@ -43,19 +43,6 @@ const MultipleSelect = () => {
                isRtl={false}
             />
          </div>
-         <div>
-            <div className="wrap_text">
-               <span className="text-select  ">Thành phố</span>
-            </div>
-            <Select
-               className="main-select"
-               options={data_price}
-               isClearable={true}
-               isDisabled={false}
-               isLoading={false}
-               isRtl={false}
-            />
-         </div>
       </div>
    );
 };

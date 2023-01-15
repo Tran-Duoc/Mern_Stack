@@ -12,10 +12,10 @@ const handler = {
          console.error(error);
       }
    },
-   getData: async () => {
+   getData: async (page = 1, limit = 5) => {
       try {
          const data = await axios.get(
-            "http://localhost:8000/products/filter?page=3&limit=4"
+            `http://localhost:8000/products/filter?page=${page}&limit=${limit}`
          );
          return data;
       } catch (error) {}
