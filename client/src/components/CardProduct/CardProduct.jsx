@@ -1,10 +1,15 @@
 import React from "react";
 import { RiShoppingCart2Line } from "react-icons/ri";
-import { FaRegClone, FaBitcoin, FaLocationArrow } from "react-icons/fa";
+import {
+   FaRegClone,
+   FaMoneyBillWaveAlt,
+   FaLocationArrow,
+   FaStar,
+} from "react-icons/fa";
 import { GrView } from "react-icons/gr";
 
 const CartProduct = ({ item }) => {
-   const { name, price, image, where } = item;
+   const { name, price, image, where, rating } = item;
 
    return (
       <div className="w-80 h-full overflow-hidden rounded-2xl p-5 border-2 border-[#161f3d] relative group bg-[#f2f2f2]">
@@ -31,9 +36,9 @@ const CartProduct = ({ item }) => {
                {name}
             </span>
 
-            <div className="grid grid-cols-2 grid-rows-1 gap-2 bg-[#edf2f4] rounded-2xl p-2">
+            <div className="grid grid-cols-3 grid-rows-1 gap-2 bg-[#edf2f4] rounded-2xl p-2">
                <span className="cart-details">
-                  <FaBitcoin />
+                  <FaMoneyBillWaveAlt className="text-green-500" />
                   <p className="cart-text font-semibold">
                      {String(price).length === 9
                         ? `${String(price).slice(0, 3)}   Triệu`
@@ -43,6 +48,10 @@ const CartProduct = ({ item }) => {
                <span className="cart-details">
                   <FaLocationArrow />
                   <p className="cart-text">{where}</p>
+               </span>
+               <span className="cart-details">
+                  <FaStar className="text-yellow-400" />
+                  <p className="cart-text  ">{rating}</p>
                </span>
             </div>
          </div>

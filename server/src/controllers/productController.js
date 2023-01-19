@@ -227,8 +227,9 @@ const productController = {
          const page = Number(req.query.page);
          const limit = Number(req.query.limit);
          const skip = (page - 1) * limit;
-         items = await Product.find({}).skip(skip).limit(limit);
-
+         if (page && limit) {
+            items = await Product.find({}).skip(skip).limit(limit);
+         }
          return res.status(200).json({
             success: true,
             length: items.length,

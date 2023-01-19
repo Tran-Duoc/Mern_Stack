@@ -13,7 +13,8 @@ export const AppProvider = ({ children }) => {
       login: false,
       username: "",
    });
-   const { loginUser, getData } = handler;
+
+   const { loginUser, getData, filterData, getUser } = handler;
    const [resize, setResize] = useState({
       width: window.innerWidth,
    });
@@ -43,7 +44,9 @@ export const AppProvider = ({ children }) => {
             setIsActiveRes,
             resize,
             loginUser,
+            filterData,
             getData,
+            getUser,
             setResize,
             dropdown,
             setDropdown,

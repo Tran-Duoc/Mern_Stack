@@ -4,6 +4,7 @@ import { AppContext } from "../context/AppContext";
 
 const Register = () => {
    const { isActiveRes, setIsActiveRes } = useContext(AppContext);
+   const { setIsActive } = useContext(AppContext);
 
    let login = isActiveRes ? "top-0 " : "top-[100vh]  ";
    const handleCloseTab = (e) => {
@@ -16,6 +17,10 @@ const Register = () => {
       }
    };
 
+   const handleMove = () => {
+      setIsActiveRes(false);
+      setIsActive(true);
+   };
    return (
       <div
          className={`fixed left-0 right-0 bottom-0  top-0 ${login} z-20 flex items-center justify-center bg-whit   
@@ -56,7 +61,9 @@ const Register = () => {
                placeholder="Nhập vào mật khẩu"
             />
 
-            <span className="mt-3 text-right ">Đăng nhập</span>
+            <span className="mt-3 text-right " onClick={handleMove}>
+               Đăng nhập
+            </span>
 
             <button className="text-2xl font-medium text-white uppercase mt-2 bg-[#e9c46a] py-3 rounded-full">
                Đăng Ký ngay

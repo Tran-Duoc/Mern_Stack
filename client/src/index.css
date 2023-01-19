@@ -28,13 +28,13 @@
       @apply my-2;
    }
    .wrap_text {
-      @apply w-full bg-[#e9c46a] py-3 pl-3 rounded-3xl;
+      @apply w-full bg-[#e9c46a] py-2 pl-3 rounded-3xl;
    }
    .text-select {
-      @apply text-2xl font-semibold text-[#253771] uppercase;
+      @apply text-sm font-semibold text-[#253771] uppercase;
    }
    .main-select {
-      @apply mt-5;
+      @apply mt-2;
    }
    .icon {
       @apply hover:bg-[#e9c46a] hover:rounded-full text-4xl p-2;

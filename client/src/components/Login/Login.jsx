@@ -6,8 +6,11 @@ import { AppContext } from "../context/AppContext";
 
 const Login = () => {
    const { isActive, setIsActive } = useContext(AppContext);
+   const { setIsActiveRes } = useContext(AppContext);
    const { isAdmin, setAdmin } = useContext(AppContext);
-   const { loginUser } = useContext(AppContext);
+   const { loginUser, getUser } = useContext(AppContext);
+   const [isErr, setIsErr] = useState(false);
+   const [isErrMess, setIsErrMess] = useState("");
    const [userName, setUserName] = useState("");
    const [password, setPassword] = useState("");
    let login = isActive ? "top-0 " : "top-[100vh]  ";
@@ -20,42 +23,48 @@ const Login = () => {
       }
    };
 
-   const handleSubmit = (e) => {
+   const handleMove = () => {
+      setIsActive(false);
+      setIsActiveRes(true);
+   };
+   const handleSubmit = async (e) => {
       e.preventDefault();
-
-      loginUser({
-         username: userName,
-         password: password,
-      }).then((data) => {
-         console.log(data);
-         if (data.request.status === 200) {
-            setIsActive(false);
-            setAdmin({
-               ...isAdmin,
-               login: true,
-               username: data.data.user.username,
-            });
-            if (data.data.user.admin === true) {
-               setAdmin({
-                  ...isAdmin,
-                  login: true,
-                  admin: true,
-                  username: data.data.user.username,
+      // if (
+      //    (userName === "" && password === "") ||
+      //    (userName === "" && password !== "") ||
+      //    (userName !== "" && password === "")
+      // ) {
+      //    setIsErr(true);
+      //    setIsErrMess("Tài khoản và mật khẩu không được trống");
+      // }
+      try {
+         await loginUser({
+            username: userName,
+            password: password,
+         }).then(async (data) => {
+            if (data.request.status === 200) {
+               setIsActive(false);
+               await getUser(data.data.user._id).then((user) => {
+                  if (user.user.username === data.data.user.username) {
+                     setAdmin({
+                        ...isAdmin,
+                        login: true,
+                        username: user.user.username,
+                     });
+                  }
+                  if (data.data.user.admin === true) {
+                     setAdmin({
+                        ...isAdmin,
+                        login: true,
+                        admin: true,
+                        username: data.data.user.username,
+                     });
+                  }
                });
             }
-         }
-      });
+         });
+      } catch (error) {}
    };
-
-   // useEffect(() => {
-   //    const handleLogin = async () => {
-   //       const data = await axios.post("http://localhost:8000/user/login", {
-   //          username: userName,
-   //          password: password,
-   //       });
-   //       console.log(data);
-   //    };
-   // }, []);
 
    return (
       <div
@@ -99,7 +108,17 @@ const Login = () => {
                onChange={(e) => setPassword(e.target.value)}
             />
 
-            <span className="mt-3 text-right ">Đăng ký ngay</span>
+            <span
+               className="mt-3 text-right block w-full   "
+               onClick={handleMove}
+            >
+               Đăng ký ngay
+            </span>
+            {isErr ? (
+               <span className="text-red-400">{console.log(isErrMess)}</span>
+            ) : (
+               ""
+            )}
 
             <button className="text-xl font-medium text-white uppercase mt-2 bg-[#e9c46a] py-3 rounded-full">
                Đăng nhập

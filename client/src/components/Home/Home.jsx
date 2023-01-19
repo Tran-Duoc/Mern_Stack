@@ -58,7 +58,7 @@ const Home = ({ data }) => {
                })}
             </Swiper>
          </div>
-         <div className="mt-8 bg-[#edf2f4]/80 py-7 px-10 drop-shadow-2xl rounded-2xl     ">
+         <div className="mt-8 bg-[#edf2f4]/80 py-7 px-10 drop-shadow-2xl rounded-2xl">
             <Swiper
                slidesPerView={1}
                spaceBetween={10}

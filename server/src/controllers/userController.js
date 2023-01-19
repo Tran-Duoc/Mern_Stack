@@ -89,6 +89,21 @@ const userController = {
          });
       }
    },
+   getUser: async (req, res) => {
+      try {
+         const id = req.params.id;
+         const user = await User.findById({_id: id}).select("-password");
+         return res.status(200).json({
+            success: true,
+            user,
+         });
+      } catch (error) {
+         return res.status(500).json({
+            success: false,
+            message: error.message,
+         });
+      }
+   },
 };
 
 module.exports = userController;
