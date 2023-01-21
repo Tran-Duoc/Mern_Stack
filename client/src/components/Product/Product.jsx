@@ -24,13 +24,14 @@ const Product = () => {
 
    useEffect(() => {
       getData(page, 4).then((data) => {
-         setPayload(data.data.items);
+         console.log(data.data);
+         // setPayload(data.data.items);
       });
    }, [getData, page]);
 
    useEffect(() => {
       filterData(rating, price).then((data) => {
-         setPayload(data.items);
+         // setPayload(data.items);
       });
    }, [rating, price, filterData, setPayload]);
 

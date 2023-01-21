@@ -7,10 +7,10 @@ import { AppContext } from "../context/AppContext";
 const Login = () => {
    const { isActive, setIsActive } = useContext(AppContext);
    const { setIsActiveRes } = useContext(AppContext);
+   const { isErr, setIsErr } = useContext(AppContext);
+
    const { isAdmin, setAdmin } = useContext(AppContext);
    const { loginUser, getUser } = useContext(AppContext);
-   const [isErr, setIsErr] = useState(false);
-   const [isErrMess, setIsErrMess] = useState("");
    const [userName, setUserName] = useState("");
    const [password, setPassword] = useState("");
    let login = isActive ? "top-0 " : "top-[100vh]  ";
@@ -29,14 +29,22 @@ const Login = () => {
    };
    const handleSubmit = async (e) => {
       e.preventDefault();
-      // if (
-      //    (userName === "" && password === "") ||
-      //    (userName === "" && password !== "") ||
-      //    (userName !== "" && password === "")
-      // ) {
-      //    setIsErr(true);
-      //    setIsErrMess("Tài khoản và mật khẩu không được trống");
-      // }
+      if (userName === "" && password === "") {
+         setIsErr({
+            status: true,
+            message: "Tài khoản và mật khẩu không được trống",
+         });
+      } else if (userName === "" && password !== "") {
+         setIsErr({
+            status: true,
+            message: "Tài khoản không được trống",
+         });
+      } else if (userName !== "" && password === "") {
+         setIsErr({
+            status: true,
+            message: "Mật khẩu không được trống",
+         });
+      }
       try {
          await loginUser({
             username: userName,
@@ -114,8 +122,8 @@ const Login = () => {
             >
                Đăng ký ngay
             </span>
-            {isErr ? (
-               <span className="text-red-400">{console.log(isErrMess)}</span>
+            {isErr.status ? (
+               <span className="text-red-400">{isErr.message}</span>
             ) : (
                ""
             )}

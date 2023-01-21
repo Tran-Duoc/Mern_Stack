@@ -9,9 +9,15 @@ const handler = {
          );
          return data;
       } catch (error) {
-         console.error(error);
-         // return error.response.data.message;
+         console.log(error.response.data.message);
       }
+   },
+   registerUser: async (dataForm) => {
+      const data = await axios.post(
+         "http://localhost:8000/user/register",
+         dataForm
+      );
+      return data;
    },
    getUser: async (userId) => {
       try {
@@ -23,11 +29,17 @@ const handler = {
          console.log(error);
       }
    },
-   getData: async (page = 1, limit = 5) => {
+   getData: async (page, limit) => {
       try {
          const data = await axios.get(
             `http://localhost:8000/products/filter?page=${page}&limit=${limit}`
          );
+
+         /*
+          * pagination
+          * filter
+          * sort
+          */
 
          return data;
       } catch (error) {

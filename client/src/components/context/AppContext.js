@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import { createContext } from "react";
 import handler from "./handler";
-export const AppContext = createContext({});
 
 export const AppProvider = ({ children }) => {
    const [isActive, setIsActive] = useState(false);
    const [isActiveRes, setIsActiveRes] = useState(false);
+   const [isActiveConFirm, setIsActiveResConFirm] = useState(false);
    const [isMobile, setIsMobile] = useState(false);
+   const [isErr, setIsErr] = useState({
+      status: false,
+      message: "",
+   });
    const [dropdown, setDropdown] = useState(false);
    const [isAdmin, setAdmin] = useState({
       admin: false,
@@ -14,7 +18,7 @@ export const AppProvider = ({ children }) => {
       username: "",
    });
 
-   const { loginUser, getData, filterData, getUser } = handler;
+   const { loginUser, getData, filterData, getUser, registerUser } = handler;
    const [resize, setResize] = useState({
       width: window.innerWidth,
    });
@@ -33,7 +37,7 @@ export const AppProvider = ({ children }) => {
 
    useEffect(() => {
       resize.with <= 540 ? setIsMobile(true) : setIsMobile(false);
-   }, [resize.width]);
+   }, [resize.width, resize.with]);
 
    return (
       <AppContext.Provider
@@ -45,16 +49,23 @@ export const AppProvider = ({ children }) => {
             resize,
             loginUser,
             filterData,
+            registerUser,
             getData,
             getUser,
+            isActiveConFirm,
+            setIsActiveResConFirm,
             setResize,
             dropdown,
             setDropdown,
             isAdmin,
+            isMobile,
             setAdmin,
+            isErr,
+            setIsErr,
          }}
       >
          {children}
       </AppContext.Provider>
    );
 };
+export const AppContext = createContext({});
