@@ -9,8 +9,8 @@ const Product = () => {
    const [payload, setPayload] = useState([]);
    const [page, setPage] = useState(1);
    const [rating, setRating] = useState("all");
+
    const [price, setPrice] = useState("all");
-   const [where, setWhere] = useState("all");
    const { getData, filterData } = useContext(AppContext);
    const navigate = useNavigate();
    const handleLoadMore = () => {
@@ -24,14 +24,13 @@ const Product = () => {
 
    useEffect(() => {
       getData(page, 4).then((data) => {
-         console.log(data.data);
-         // setPayload(data.data.items);
+         setPayload(data.data.items);
       });
    }, [getData, page]);
 
    useEffect(() => {
       filterData(rating, price).then((data) => {
-         // setPayload(data.items);
+         setPayload(data.items);
       });
    }, [rating, price, filterData, setPayload]);
 

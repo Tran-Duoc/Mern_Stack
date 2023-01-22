@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 
 import { useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 
 const Login = () => {
@@ -13,6 +14,8 @@ const Login = () => {
    const { loginUser, getUser } = useContext(AppContext);
    const [userName, setUserName] = useState("");
    const [password, setPassword] = useState("");
+   const navigate = useNavigate();
+
    let login = isActive ? "top-0 " : "top-[100vh]  ";
    const handleCloseTab = () => {
       setIsActive(false);
@@ -51,6 +54,7 @@ const Login = () => {
             password: password,
          }).then(async (data) => {
             if (data.request.status === 200) {
+               navigate("/");
                setIsActive(false);
                await getUser(data.data.user._id).then((user) => {
                   if (user.user.username === data.data.user.username) {

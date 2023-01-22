@@ -201,7 +201,7 @@ const productController = {
       try {
          //? basic filtering
          const objectId = { ...req.query };
-         let excludedFields = ["sort", "page", "field"];
+         let excludedFields = ["sort", "page", "field", "limit"];
          excludedFields.forEach((element) => {
             delete objectId[element];
          });

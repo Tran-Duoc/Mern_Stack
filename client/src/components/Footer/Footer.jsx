@@ -33,10 +33,10 @@ const Footer = () => {
             </div>
             <div>
                <div className="text-4xl">
-                  <BsFacebook className="footer_social" />
-                  <AiFillTwitterCircle className="footer_social" />
-                  <AiFillYoutube className="footer_social" />
-                  <SiZalo className="footer_social" />
+                  <BsFacebook className="footer_social text-blue-500" />
+                  <AiFillTwitterCircle className="footer_social text-blue-400 " />
+                  <AiFillYoutube className="footer_social text-red-600" />
+                  <SiZalo className="footer_social bg-blue-400 text-white rounded-xl p-1" />
                </div>
             </div>
          </div>

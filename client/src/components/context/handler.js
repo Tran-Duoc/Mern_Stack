@@ -35,12 +35,6 @@ const handler = {
             `http://localhost:8000/products/filter?page=${page}&limit=${limit}`
          );
 
-         /*
-          * pagination
-          * filter
-          * sort
-          */
-
          return data;
       } catch (error) {
          console.error(error);
@@ -58,6 +52,22 @@ const handler = {
          console.error(error);
       }
    },
+   sortData: async (val) => {
+      try {
+         const data = await axios.get(
+            `http://localhost:8000/products/filter?sort=${val}`
+         );
+         return data.data;
+      } catch (error) {}
+   },
+   getItem: async (id) => {
+      try {
+         const data = await axios.get(
+            `http://localhost:8000/products/item/${id}`
+         );
+         return data.data;
+      } catch (error) {}
+   },
 };
-// &page=${page}&limit${limit}
+
 export default handler;

@@ -90,3 +90,14 @@ export const data_where = [
       label: "Vĩnh Long",
    },
 ];
+
+export const data_sort = [
+   {
+      value: "rating",
+      label: "Đánh giá",
+   },
+   {
+      value: "price",
+      label: "Giá",
+   },
+];

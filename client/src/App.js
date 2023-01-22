@@ -9,10 +9,11 @@ import { useContext } from "react";
 import { AppContext } from "./components/context/AppContext";
 import Register from "./components/Register/Register";
 import Detail from "./components/DetailProduct/Detail";
+import LoginConfrim from "./components/ConfirmBox/LoginConfrim";
+
 function App() {
    const { isActive } = useContext(AppContext);
    const { isActiveRes } = useContext(AppContext);
-
    return (
       <div className="bg-[#dee2e6] min-h-screen px-[8%] pt-32  ">
          <Navbar />
@@ -20,7 +21,7 @@ function App() {
          <Routes>
             <Route path="/" element={<Home data={data} />} />
             <Route path="/product" element={<Product />} />
-            <Route path="/detail" element={<Detail />} />
+            <Route path="/detail/:id" element={<Detail />} />
          </Routes>
          <Footer />
          {isActive ? <Login /> : ""}

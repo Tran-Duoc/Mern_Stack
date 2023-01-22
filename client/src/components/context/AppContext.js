@@ -18,7 +18,15 @@ export const AppProvider = ({ children }) => {
       username: "",
    });
 
-   const { loginUser, getData, filterData, getUser, registerUser } = handler;
+   const {
+      loginUser,
+      getData,
+      filterData,
+      getUser,
+      registerUser,
+      sortData,
+      getItem,
+   } = handler;
    const [resize, setResize] = useState({
       width: window.innerWidth,
    });
@@ -52,6 +60,8 @@ export const AppProvider = ({ children }) => {
             registerUser,
             getData,
             getUser,
+            getItem,
+            sortData,
             isActiveConFirm,
             setIsActiveResConFirm,
             setResize,
