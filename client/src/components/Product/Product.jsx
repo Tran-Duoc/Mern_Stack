@@ -43,7 +43,7 @@ const Product = () => {
                   payload.length === 0 ? (
                      <span className="text-4xl">Không có sản phẩm nào nữa</span>
                   ) : (
-                     <CardProduct item={item} key={item._id} />
+                     <CardProduct item={item}  key={item._id} />
                   );
                return result;
             })}

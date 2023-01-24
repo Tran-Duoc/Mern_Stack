@@ -5,8 +5,10 @@ import handler from "./handler";
 export const AppProvider = ({ children }) => {
    const [isActive, setIsActive] = useState(false);
    const [isActiveRes, setIsActiveRes] = useState(false);
+   const [isActiveImg, setIsActiveImg] = useState(false);
    const [isActiveConFirm, setIsActiveResConFirm] = useState(false);
    const [isMobile, setIsMobile] = useState(false);
+   const [itemImg, setItemImg] = useState("");
    const [isErr, setIsErr] = useState({
       status: false,
       message: "",
@@ -58,13 +60,17 @@ export const AppProvider = ({ children }) => {
             loginUser,
             filterData,
             registerUser,
+            isActiveImg,
+            setIsActiveImg,
             getData,
             getUser,
-            getItem,
-            sortData,
             isActiveConFirm,
             setIsActiveResConFirm,
+            getItem,
+            sortData,
             setResize,
+            itemImg,
+            setItemImg,
             dropdown,
             setDropdown,
             isAdmin,

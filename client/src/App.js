@@ -9,7 +9,7 @@ import { useContext } from "react";
 import { AppContext } from "./components/context/AppContext";
 import Register from "./components/Register/Register";
 import Detail from "./components/DetailProduct/Detail";
-import LoginConfrim from "./components/ConfirmBox/LoginConfrim";
+import ImageReview from "./components/imageReview/ImageReview";
 
 function App() {
    const { isActive } = useContext(AppContext);
@@ -26,6 +26,7 @@ function App() {
          <Footer />
          {isActive ? <Login /> : ""}
          {isActiveRes ? <Register /> : ""}
+         <ImageReview />
       </div>
    );
 }
