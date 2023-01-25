@@ -17,7 +17,7 @@ const CartProduct = ({ item }) => {
    const { setItemImg } = useContext(AppContext);
    const { name, price, image, where, rating, _id } = item;
 
-   const { login } = isAdmin;
+   const { login, admin } = isAdmin;
 
    const navigate = useNavigate();
    const handleMoveDetailPage = () => {
@@ -37,6 +37,11 @@ const CartProduct = ({ item }) => {
       setItemImg(image);
       setIsActiveImg(true);
    };
+
+   const handleMoveCart = () => {
+      navigate("cart");
+   };
+
    return (
       <>
          {" "}
@@ -53,7 +58,10 @@ const CartProduct = ({ item }) => {
                   className=" object-cover bg-cover absolute  top-0  bottom-0 h-full w-full duration-[500ms]  rounded-t-2xl   -left-96 opacity-0 scale-0 group-hover:left-0 group-hover:opacity-100 group-hover:scale-100 pointer-events-none"
                />
                <div className="w-full  bg-[#edf2f4] px-5 py-2  absolute left-96 bottom-5 z-10 duration-[500ms] group-hover:left-0  flex gap-10 opacity-75  group-hover:rounded-3xl ">
-                  <RiShoppingCart2Line className="icon" />
+                  <RiShoppingCart2Line
+                     className="icon"  
+                     onClick={handleMoveCart}
+                  />
                   <FaRegClone className="icon" onClick={handleMoveDetailPage} />
                   <GrView className="icon" onClick={handleShowImgReview} />
                </div>

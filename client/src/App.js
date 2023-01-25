@@ -10,6 +10,8 @@ import { AppContext } from "./components/context/AppContext";
 import Register from "./components/Register/Register";
 import Detail from "./components/DetailProduct/Detail";
 import ImageReview from "./components/imageReview/ImageReview";
+import Cart from "./components/cart/Cart";
+import Admin from "./components/admin/Admin";
 
 function App() {
    const { isActive } = useContext(AppContext);
@@ -22,6 +24,8 @@ function App() {
             <Route path="/" element={<Home data={data} />} />
             <Route path="/product" element={<Product />} />
             <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/config" element={<Admin />} />
          </Routes>
          <Footer />
          {isActive ? <Login /> : ""}

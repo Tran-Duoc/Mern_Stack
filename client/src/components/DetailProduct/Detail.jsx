@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useNavigation, useParams } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 
 const Detail = () => {
+   const navigate = useNavigate();
    const { getItem } = useContext(AppContext);
    const { id } = useParams();
    const [information, setInformation] = useState({
@@ -25,7 +26,11 @@ const Detail = () => {
             });
          }
       });
-   }, []);
+   }, [getItem, id]);
+
+   const handleMoveCart = () => {
+      navigate("/cart");
+   };
 
    return (
       <div className="h-[60vh] bg-[#edf2f4] grid grid-cols-[400px_auto] grid-rows-1  px-10 py-20 gap-10 mt-7 rounded-2xl overflow-hidden">
@@ -60,7 +65,10 @@ const Detail = () => {
 
             <div className="flex items-center gap-5">
                {/* <button className="btn bg-[#e9c46a] my-16">Mua ngay</button> */}
-               <button className=" bg-[#e9c46a] my-12 py-3 px-4 rounded-3xl font-medium uppercase" >
+               <button
+                  className=" bg-[#e9c46a] my-12 py-3 px-4 rounded-3xl font-medium uppercase"
+                  onClick={handleMoveCart}
+               >
                   Thêm vào danh sách xem sau
                </button>
             </div>

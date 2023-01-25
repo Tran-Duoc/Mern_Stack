@@ -27,6 +27,11 @@ const Navbar = () => {
       navigate("/");
       window.location.reload();
    };
+
+   const handleMoveCart = () => {
+      navigate("cart");
+   };
+
    return (
       <div className="relative">
          <div className="grid grid-cols-[80px_auto_50px_250px] fixed top-0 left-0 right-0   bg-[#edf2f4] py-7 px-10 drop-shadow-2xl mx-[8%] my-5 rounded-3xl z-10 overflow-hidden lg:grid-cols-[70px_auto_50px_50px] ">
@@ -52,7 +57,7 @@ const Navbar = () => {
                )}
             </nav>
             <div className="flex items-center justify-start text-3xl ">
-               <AiOutlineShoppingCart />
+               <AiOutlineShoppingCart onClick={handleMoveCart} />
                {/* <BiUserCircle onClick={handleClickDropdown} /> */}
             </div>
             {window.innerWidth <= 1024 ? (

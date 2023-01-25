@@ -7,7 +7,6 @@ const ImageReview = () => {
    const { isActiveImg, setIsActiveImg } = useContext(AppContext);
    const [index, setIndex] = useState(0);
    const { itemImg } = useContext(AppContext);
-
    const handleNextImage = () => {
       if (index === itemImg.length - 1) {
          setIndex(0);
