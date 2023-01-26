@@ -56,12 +56,26 @@
    }
    .dropdown {
       @apply flex items-center  text-sm justify-between px-5 py-3 hover:bg-[#e9c46a]/80 duration-300 mx-3 rounded-full;
-   } 
-   .detail {
-      @apply flex items-end text-lg mb-2
-
    }
-   .detail-text{
-      @apply text-xl font-medium mr-3
+   .detail {
+      @apply flex items-end text-lg mb-2;
+   }
+   .detail-text {
+      @apply text-xl font-medium mr-3;
+   }
+   .edit_admin {
+      @apply flex flex-col gap-1;
+   }
+   .edit-admin_radio {
+      @apply flex flex-col gap-1;
+   }
+   .admin-text_label {
+      @apply text-sm uppercase font-medium;
+   }
+   .admin-text_input {
+      @apply px-3 py-2 rounded-xl;
+   }
+   .radio_rating {
+      @apply scale-[1.5];
    }
 }

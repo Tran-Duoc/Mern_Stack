@@ -12,10 +12,12 @@ import Detail from "./components/DetailProduct/Detail";
 import ImageReview from "./components/imageReview/ImageReview";
 import Cart from "./components/cart/Cart";
 import Admin from "./components/admin/Admin";
+import EditForm from "./components/EditForm/EditForm";
 
 function App() {
    const { isActive } = useContext(AppContext);
    const { isActiveRes } = useContext(AppContext);
+   const { isActiveEditForm } = useContext(AppContext);
    return (
       <div className="bg-[#dee2e6] min-h-screen px-[8%] pt-32  ">
          <Navbar />
@@ -30,6 +32,7 @@ function App() {
          <Footer />
          {isActive ? <Login /> : ""}
          {isActiveRes ? <Register /> : ""}
+         {isActiveEditForm ? <EditForm /> : ""}
          <ImageReview />
       </div>
    );

@@ -68,6 +68,25 @@ const handler = {
          return data.data;
       } catch (error) {}
    },
+   getAll: async () => {
+      try {
+         const data = await axios.get("http://localhost:8000/products/all");
+         return data.data;
+      } catch (error) {
+         return error.response.data.message;
+      }
+   },
+   createData: async (dataForm) => {
+      try {
+         const data = await axios.post(
+            "http://localhost:8000/products/create",
+            dataForm
+         );
+         return data.data;
+      } catch (error) {
+         return error.response.data.message;
+      }
+   },
 };
 
 export default handler;

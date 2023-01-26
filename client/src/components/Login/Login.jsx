@@ -54,25 +54,27 @@ const Login = () => {
             password: password,
          }).then(async (data) => {
             if (data.request.status === 200) {
-               navigate("/");
-               setIsActive(false);
-               await getUser(data.data.user._id).then((user) => {
-                  if (user.user.username === data.data.user.username) {
-                     setAdmin({
-                        ...isAdmin,
-                        login: true,
-                        username: user.user.username,
-                     });
-                  }
-                  if (data.data.user.admin === true) {
-                     setAdmin({
-                        ...isAdmin,
-                        login: true,
-                        admin: true,
-                        username: data.data.user.username,
-                     });
-                  }
-               });
+               try {
+                  navigate("/");
+                  setIsActive(false);
+                  await getUser(data.data.user._id).then((user) => {
+                     if (user.user.username === data.data.user.username) {
+                        setAdmin({
+                           ...isAdmin,
+                           login: true,
+                           username: user.user.username,
+                        });
+                     }
+                     if (data.data.user.admin === true) {
+                        setAdmin({
+                           ...isAdmin,
+                           login: true,
+                           admin: true,
+                           username: data.data.user.username,
+                        });
+                     }
+                  });
+               } catch (error) {}
             }
          });
       } catch (error) {}

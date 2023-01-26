@@ -6,6 +6,7 @@ export const AppProvider = ({ children }) => {
    const [isActive, setIsActive] = useState(false);
    const [isActiveRes, setIsActiveRes] = useState(false);
    const [isActiveImg, setIsActiveImg] = useState(false);
+   const [isActiveEditForm, setIsActiveEditForm] = useState(false);
    const [isActiveConFirm, setIsActiveResConFirm] = useState(false);
    const [isMobile, setIsMobile] = useState(false);
    const [itemImg, setItemImg] = useState("");
@@ -28,6 +29,7 @@ export const AppProvider = ({ children }) => {
       registerUser,
       sortData,
       getItem,
+      getAll,
    } = handler;
    const [resize, setResize] = useState({
       width: window.innerWidth,
@@ -62,6 +64,7 @@ export const AppProvider = ({ children }) => {
             registerUser,
             isActiveImg,
             setIsActiveImg,
+            getAll,
             getData,
             getUser,
             isActiveConFirm,
@@ -78,6 +81,8 @@ export const AppProvider = ({ children }) => {
             setAdmin,
             isErr,
             setIsErr,
+            isActiveEditForm,
+            setIsActiveEditForm,
          }}
       >
          {children}
