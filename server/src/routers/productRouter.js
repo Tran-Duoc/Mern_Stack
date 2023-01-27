@@ -15,10 +15,6 @@ router.post("/create", productController.createItem);
 
 router.delete("/delete/:id", productController.deleteProduct);
 
-router.put(
-   "/item/update/:id",
-   verify.verifyToken,
-   productController.updateProduct
-);
+router.put("/item/update/:id", productController.updateProduct);
 
 module.exports = router;

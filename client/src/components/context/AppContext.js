@@ -8,6 +8,11 @@ export const AppProvider = ({ children }) => {
    const [isActiveImg, setIsActiveImg] = useState(false);
    const [isActiveEditForm, setIsActiveEditForm] = useState(false);
    const [isActiveConFirm, setIsActiveResConFirm] = useState(false);
+   const [isUpdateProduct, setIsUpdateProduct] = useState({
+      status: false,
+      id: 0,
+      data: undefined,
+   });
    const [isMobile, setIsMobile] = useState(false);
    const [itemImg, setItemImg] = useState("");
    const [isErr, setIsErr] = useState({
@@ -32,6 +37,7 @@ export const AppProvider = ({ children }) => {
       createData,
       getAll,
       deleteProduct,
+      updateProduct,
    } = handler;
    const [resize, setResize] = useState({
       width: window.innerWidth,
@@ -87,6 +93,9 @@ export const AppProvider = ({ children }) => {
             setIsActiveEditForm,
             createData,
             deleteProduct,
+            isUpdateProduct,
+            setIsUpdateProduct,
+            updateProduct,
          }}
       >
          {children}

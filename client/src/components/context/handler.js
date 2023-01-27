@@ -97,6 +97,17 @@ const handler = {
          return error;
       }
    },
+   updateProduct: async (productId, dataForm) => {
+      try {
+         const data = await axios.put(
+            `http://localhost:8000/products/item/update/${productId}`,
+            dataForm
+         );
+         return data;
+      } catch (error) {
+         console.log(error);
+      }
+   },
 };
 
 export default handler;

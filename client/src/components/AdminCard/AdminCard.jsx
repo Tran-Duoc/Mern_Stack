@@ -8,6 +8,8 @@ import { AppContext } from "../context/AppContext";
 const AdminCard = ({ item }) => {
    const navigate = useNavigate();
    const { deleteProduct } = useContext(AppContext);
+   const { setIsUpdateProduct } = useContext(AppContext);
+   const { setIsActiveEditForm } = useContext(AppContext);
 
    const handleMoveDetail = () => {
       navigate(`/detail/${item._id}`);
@@ -24,6 +26,17 @@ const AdminCard = ({ item }) => {
          });
       }
    };
+
+   const handleUpdateProduct = () => {
+      console.log("is updated");
+      setIsActiveEditForm(true);
+      setIsUpdateProduct({
+         status: true,
+         id: item._id,
+         data: item,
+      });
+   };
+
    return (
       <div className="grid grid-cols-[200px_auto_200px] grid-rows-1 h-32 overflow-hidden rounded-2xl border border-black mb-3  bg-[#edf2f4]">
          <img
@@ -57,7 +70,7 @@ const AdminCard = ({ item }) => {
          <div className="flex items-center justify-center  gap-5 text-xl ">
             <BiShow onClick={handleMoveDetail} />
             <RiDeleteBinLine onClick={handleDeleteProduct} />
-            <RiEdit2Fill />
+            <RiEdit2Fill onClick={handleUpdateProduct} />
          </div>
       </div>
    );

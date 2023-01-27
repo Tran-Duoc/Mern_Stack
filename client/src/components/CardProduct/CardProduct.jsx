@@ -11,13 +11,13 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 
 const CartProduct = ({ item }) => {
-   const { isAdmin } = useContext(AppContext);
    const { setIsActive } = useContext(AppContext);
    const { setIsActiveImg } = useContext(AppContext);
    const { setItemImg } = useContext(AppContext);
    const { name, price, image, where, rating, _id } = item;
+   const isLogin = JSON.parse(localStorage.getItem("login"));
 
-   const { login, admin } = isAdmin;
+   const { login } = isLogin || true;
 
    const navigate = useNavigate();
    const handleMoveDetailPage = () => {
@@ -59,7 +59,7 @@ const CartProduct = ({ item }) => {
                />
                <div className="w-full  bg-[#edf2f4] px-5 py-2  absolute left-96 bottom-5 z-10 duration-[500ms] group-hover:left-0  flex gap-10 opacity-75  group-hover:rounded-3xl ">
                   <RiShoppingCart2Line
-                     className="icon"  
+                     className="icon"
                      onClick={handleMoveCart}
                   />
                   <FaRegClone className="icon" onClick={handleMoveDetailPage} />

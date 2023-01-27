@@ -60,10 +60,7 @@ const Navbar = () => {
                   ""
                )}
             </nav>
-            <div className="flex items-center justify-start text-3xl ">
-               <AiOutlineShoppingCart onClick={handleMoveCart} />
-               {/* <BiUserCircle onClick={handleClickDropdown} /> */}
-            </div>
+            <div className="flex items-center justify-start text-3xl "></div>
             {window.innerWidth <= 1024 ? (
                <span className="flex items-center   justify-start text-3xl ">
                   <BiUserCircle onClick={handleClickDropdown} />

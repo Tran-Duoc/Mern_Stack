@@ -4,7 +4,8 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const EditForm = () => {
    const { isActiveEditForm, setIsActiveEditForm } = useContext(AppContext);
-   const { createData } = useContext(AppContext);
+   const { isUpdateProduct } = useContext(AppContext);
+   const { createData, updateProduct } = useContext(AppContext);
    const [rating, setRating] = useState(0);
    const [name, setName] = useState("");
    const [where, setWhere] = useState("");
@@ -29,21 +30,37 @@ const EditForm = () => {
    const handleCreateProduct = async (e) => {
       e.preventDefault();
       try {
-         createData({
-            name: name,
-            where: where,
-            price: price,
-            rating: rating,
-            description: description,
-            image: [image1, image2],
-         }).then((data) => {
-            if (data.success) {
+         if (!isUpdateProduct.status) {
+            createData({
+               name: name,
+               where: where,
+               price: price,
+               rating: rating,
+               description: description,
+               image: [image1, image2],
+            }).then((data) => {
+               if (data.success) {
+                  alert(data.message);
+                  setIsActiveEditForm(false);
+                  window.location.reload();
+               }
+               console.log(data);
+            });
+         } else {
+            updateProduct(isUpdateProduct.id, {
+               name: name,
+               where: where,
+               price: price,
+               rating: rating,
+               description: description,
+               image: [image1, image2],
+            }).then((data) => {
+               console.log(data);
                alert(data.message);
                setIsActiveEditForm(false);
                window.location.reload();
-            }
-            console.log(data);
-         });
+            });
+         }
       } catch (error) {}
    };
 
@@ -166,7 +183,6 @@ const EditForm = () => {
                               id="rating-4"
                               value={4}
                               onChange={handleChange}
-                              // checked={rating === 4}
                               name="rating"
                               className="radio_rating"
                            />
@@ -178,7 +194,6 @@ const EditForm = () => {
                               id="rating-5"
                               value={5}
                               onChange={handleChange}
-                              checked={rating === 5}
                               name="rating"
                               className="radio_rating"
                            />
@@ -214,6 +229,7 @@ const EditForm = () => {
                         />
                      </div>
                   </div>
+
                   <button className="bg-[#e9c46a] py-4 rounded-full font-semibold uppercase">
                      Tạo
                   </button>

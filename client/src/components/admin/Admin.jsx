@@ -7,10 +7,16 @@ import AdminCard from "../AdminCard/AdminCard";
 
 const Admin = () => {
    const { getAll } = useContext(AppContext);
+   const { isUpdateProduct, setIsUpdateProduct } = useContext(AppContext);
+
    const [data, setData] = useState([]);
    const { setIsActiveEditForm } = useContext(AppContext);
 
    const handleCreateProduct = () => {
+      setIsUpdateProduct({
+         ...isUpdateProduct,
+         status: false,
+      });
       setIsActiveEditForm(true);
    };
 
@@ -19,11 +25,6 @@ const Admin = () => {
          setData(data.allItem);
       });
    }, [getAll]);
-
-
-   
-
-
 
    return (
       <div className="  mt-7 rounded-2xl overflow-hidden flex flex-col ">

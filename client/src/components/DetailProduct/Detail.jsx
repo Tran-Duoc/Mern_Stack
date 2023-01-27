@@ -29,7 +29,7 @@ const Detail = () => {
    }, [getItem, id]);
 
    const handleMoveCart = () => {
-      navigate("/cart");
+      navigate("/contact");
    };
 
    return (
@@ -69,7 +69,7 @@ const Detail = () => {
                   className=" bg-[#e9c46a] my-12 py-3 px-4 rounded-3xl font-medium uppercase"
                   onClick={handleMoveCart}
                >
-                  Thêm vào danh sách xem sau
+                  Liên hệ
                </button>
             </div>
          </div>

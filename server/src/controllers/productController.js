@@ -121,9 +121,9 @@ const productController = {
    updateProduct: async (req, res) => {
       try {
          const id = req.params.id;
-         const { name, price, description, image, rating } = req.body;
+         const { name, price, description, image, rating, where } = req.body;
          const isAdmin = await User.findOne({ _id: req.userId });
-         console.log(isAdmin.admin);
+
          let updateProduct = {
             name,
             price,
