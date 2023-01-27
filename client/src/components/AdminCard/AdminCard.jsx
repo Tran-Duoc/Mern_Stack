@@ -3,12 +3,27 @@ import { BiShow } from "react-icons/bi";
 import { RiDeleteBinLine, RiEdit2Fill } from "react-icons/ri";
 import { FaMoneyBillWaveAlt, FaLocationArrow, FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 const AdminCard = ({ item }) => {
    const navigate = useNavigate();
+   const { deleteProduct } = useContext(AppContext);
+
    const handleMoveDetail = () => {
       navigate(`/detail/${item._id}`);
    };
-
+   const handleDeleteProduct = () => {
+      console.log(item._id);
+      const confirm = window.confirm(
+         `bạn có muốn xóa ${item.name} khỏi danh sách`
+      );
+      if (confirm) {
+         console.log("true");
+         deleteProduct(item._id).then(() => {
+            window.location.reload();
+         });
+      }
+   };
    return (
       <div className="grid grid-cols-[200px_auto_200px] grid-rows-1 h-32 overflow-hidden rounded-2xl border border-black mb-3  bg-[#edf2f4]">
          <img
@@ -41,7 +56,7 @@ const AdminCard = ({ item }) => {
          </div>
          <div className="flex items-center justify-center  gap-5 text-xl ">
             <BiShow onClick={handleMoveDetail} />
-            <RiDeleteBinLine />
+            <RiDeleteBinLine onClick={handleDeleteProduct} />
             <RiEdit2Fill />
          </div>
       </div>

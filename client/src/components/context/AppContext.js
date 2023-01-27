@@ -29,7 +29,9 @@ export const AppProvider = ({ children }) => {
       registerUser,
       sortData,
       getItem,
+      createData,
       getAll,
+      deleteProduct,
    } = handler;
    const [resize, setResize] = useState({
       width: window.innerWidth,
@@ -83,6 +85,8 @@ export const AppProvider = ({ children }) => {
             setIsErr,
             isActiveEditForm,
             setIsActiveEditForm,
+            createData,
+            deleteProduct,
          }}
       >
          {children}

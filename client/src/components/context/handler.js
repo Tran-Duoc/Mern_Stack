@@ -87,6 +87,16 @@ const handler = {
          return error.response.data.message;
       }
    },
+   deleteProduct: async (productId) => {
+      try {
+         const data = await axios.delete(
+            `http://localhost:8000/products/delete/${productId}`
+         );
+         return data;
+      } catch (error) {
+         return error;
+      }
+   },
 };
 
 export default handler;

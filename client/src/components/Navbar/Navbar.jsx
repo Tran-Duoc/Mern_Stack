@@ -11,7 +11,10 @@ const Navbar = () => {
    const { setIsActiveRes } = useContext(AppContext);
    const { dropdown, setDropdown } = useContext(AppContext);
    const navigate = useNavigate();
-   const { admin, login, username } = isAdmin;
+
+   const isLogin = JSON.parse(localStorage.getItem("login"));
+
+   const { login, admin, username } = isLogin || true;
    const handleClick = () => {
       setIsActive(true);
    };
@@ -23,7 +26,8 @@ const Navbar = () => {
       setDropdown(!dropdown);
    };
    const handleLogout = () => {
-      setAdmin({ ...isAdmin, login: false });
+      // setAdmin({ ...isAdmin, login: false });
+      localStorage.removeItem("login");
       navigate("/");
       window.location.reload();
    };

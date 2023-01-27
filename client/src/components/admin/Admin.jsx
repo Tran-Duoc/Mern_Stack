@@ -16,10 +16,14 @@ const Admin = () => {
 
    useEffect(() => {
       getAll().then((data) => {
-         // console.log(data.allItem);
          setData(data.allItem);
       });
    }, [getAll]);
+
+
+   
+
+
 
    return (
       <div className="  mt-7 rounded-2xl overflow-hidden flex flex-col ">

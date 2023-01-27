@@ -1,14 +1,18 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+
 const EditForm = () => {
    const { isActiveEditForm, setIsActiveEditForm } = useContext(AppContext);
+   const { createData } = useContext(AppContext);
    const [rating, setRating] = useState(0);
    const [name, setName] = useState("");
    const [where, setWhere] = useState("");
-   const [price, setPrice] = useState(0);
+   const [price, setPrice] = useState(Number(0));
+   const [description, setDescription] = useState("");
    const [image1, setImage1] = useState([]);
    const [image2, setImage2] = useState([]);
+
    const handleChange = (e) => {
       console.log(e.target.value);
       setRating(e.target.value);
@@ -22,9 +26,27 @@ const EditForm = () => {
    const handleCloseTab = () => {
       setIsActiveEditForm(false);
    };
-   const handleCreateProduct = (e) => {
+   const handleCreateProduct = async (e) => {
       e.preventDefault();
+      try {
+         createData({
+            name: name,
+            where: where,
+            price: price,
+            rating: rating,
+            description: description,
+            image: [image1, image2],
+         }).then((data) => {
+            if (data.success) {
+               alert(data.message);
+               setIsActiveEditForm(false);
+               window.location.reload();
+            }
+            console.log(data);
+         });
+      } catch (error) {}
    };
+
    return (
       <>
          {isActiveEditForm ? (
@@ -62,7 +84,7 @@ const EditForm = () => {
                      </label>
                      <input
                         type="text"
-                        value={price}
+                        value={Number(price)}
                         onChange={(e) => setPrice(e.target.value)}
                         className="admin-text_input"
                         placeholder="giá"
@@ -79,6 +101,19 @@ const EditForm = () => {
                         onChange={(e) => setWhere(e.target.value)}
                         className="admin-text_input"
                         placeholder="địa điểm"
+                     />
+                  </div>
+
+                  <div className="edit_admin">
+                     <label htmlFor="where" className="admin-text_label">
+                        Mô tả
+                     </label>
+                     <textarea
+                        value={description}
+                        className="admin-text_input"
+                        onChange={(e) => setDescription(e.target.value)}
+                        rows={3}
+                        cols={60}
                      />
                   </div>
 

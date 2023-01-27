@@ -67,12 +67,7 @@ const productController = {
             });
          }
          if (price) {
-            if (typeof price === "string") {
-               return res.status(400).json({
-                  success: false,
-                  message: "The price not a number",
-               });
-            } else if (Number(price) < 0) {
+            if (Number(price) < 0) {
                return res.status(403).json({
                   success: false,
                   message: "The price is not a minus",
@@ -93,7 +88,7 @@ const productController = {
             });
          }
 
-         if (!rating || typeof rating !== "number") {
+         if (!rating) {
             return res.status(403).json({
                success: false,
                message: "The rating is not a number",

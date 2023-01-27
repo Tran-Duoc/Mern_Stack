@@ -9,7 +9,6 @@ const Login = () => {
    const { isActive, setIsActive } = useContext(AppContext);
    const { setIsActiveRes } = useContext(AppContext);
    const { isErr, setIsErr } = useContext(AppContext);
-
    const { isAdmin, setAdmin } = useContext(AppContext);
    const { loginUser, getUser } = useContext(AppContext);
    const [userName, setUserName] = useState("");
@@ -59,6 +58,14 @@ const Login = () => {
                   setIsActive(false);
                   await getUser(data.data.user._id).then((user) => {
                      if (user.user.username === data.data.user.username) {
+                        localStorage.setItem(
+                           "login",
+                           JSON.stringify({
+                              login: true,
+                              admin: false,
+                              username: data.data.user.username,
+                           })
+                        );
                         setAdmin({
                            ...isAdmin,
                            login: true,
@@ -66,6 +73,14 @@ const Login = () => {
                         });
                      }
                      if (data.data.user.admin === true) {
+                        localStorage.setItem(
+                           "login",
+                           JSON.stringify({
+                              login: true,
+                              admin: true,
+                              username: data.data.user.username,
+                           })
+                        );
                         setAdmin({
                            ...isAdmin,
                            login: true,

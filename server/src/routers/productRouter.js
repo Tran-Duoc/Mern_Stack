@@ -11,13 +11,9 @@ router.get("/all", productController.getAll);
 
 router.get("/filter", productController.filterProduct);
 
-router.post("/create", verify.verifyToken, productController.createItem);
+router.post("/create", productController.createItem);
 
-router.delete(
-   "/delete/:id",
-   verify.verifyDelete,
-   productController.deleteProduct
-);
+router.delete("/delete/:id", productController.deleteProduct);
 
 router.put(
    "/item/update/:id",
