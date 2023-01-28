@@ -38,17 +38,17 @@ const AdminCard = ({ item }) => {
    };
 
    return (
-      <div className="grid grid-cols-[200px_auto_200px] grid-rows-1 h-32 overflow-hidden rounded-2xl border border-black mb-3  bg-[#edf2f4]">
+      <div className="grid grid-cols-[200px_auto_200px] grid-rows-1 h-32 overflow-hidden rounded-2xl border border-black mb-3  bg-[#edf2f4] sm:grid-cols-1 sm:grid-rows-[150px_auto_60px] sm:h-full">
          <img
             alt=""
             src={item.image[0]}
             className="object-cover bg-cover p-2 h-full w-full rounded-2xl"
          />
-         <div className="mt-2 ml-10">
+         <div className="mt-2 ml-10 sm:ml-3 sm:flex sm:flex-col  ">
             <span className="text-sm uppercase font-normal">
                Tên sản phẩm: {item.name}
             </span>
-            <div className="grid grid-cols-[100px_100px_100px] mt-3">
+            <div className="grid grid-cols-[100px_100px_100px] mt-3 ">
                <div className="flex items-center justify-center flex-col gap-2">
                   <FaMoneyBillWaveAlt className="text-green-500" />
                   <span className="text-xs">

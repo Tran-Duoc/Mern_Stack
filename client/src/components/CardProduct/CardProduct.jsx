@@ -44,8 +44,7 @@ const CartProduct = ({ item }) => {
 
    return (
       <>
-         {" "}
-         <div className="w-80 h-full overflow-hidden rounded-2xl p-5 border-2 border-[#161f3d] relative group bg-[#f2f2f2]">
+         <div className="max-w-[330px] h-full overflow-hidden rounded-2xl p-5 border-2 border-[#161f3d] relative group bg-[#f2f2f2]">
             <div className="flex w-full h-60 overflow-hidden group relative  ">
                <img
                   src={image[0]}

@@ -72,7 +72,7 @@ const EditForm = () => {
                onClick={(e) => handleOutSide(e)}
             >
                <form
-                  className="bg-[#edf2f4] p-10  flex flex-col gap-7 w-[470px] mx-5  rounded-2xl  overflow-hidden relative"
+                  className="bg-[#edf2f4] p-10  flex flex-col gap-7 max-w-[470px] mx-5  rounded-2xl  overflow-hidden relative sm:gap-2 sm:px-3"
                   onSubmit={(e) => handleCreateProduct(e)}
                >
                   <AiOutlineCloseCircle

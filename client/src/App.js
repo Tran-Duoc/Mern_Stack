@@ -19,7 +19,7 @@ function App() {
    const { isActiveRes } = useContext(AppContext);
    const { isActiveEditForm } = useContext(AppContext);
    return (
-      <div className="bg-[#dee2e6] min-h-screen px-[8%] pt-32  ">
+      <div className="bg-[#dee2e6] min-h-screen px-[8%] pt-32 md:px-5 ">
          <Navbar />
 
          <Routes>

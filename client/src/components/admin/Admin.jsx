@@ -31,7 +31,7 @@ const Admin = () => {
          <span className="text-center text-xl font-medium max-w-full bg-[#edf2f4] py-5 shadow-inner">
             Danh sách sản phẩm
          </span>
-         <div className="bg-[#edf2f4] p-10 mt-5 rounded-b-2xl overflow-hidden ">
+         <div className="bg-[#edf2f4] p-10 mt-5 rounded-b-2xl overflow-hidden md:px-3 md:py-5">
             {[...data].map((item) => {
                return <AdminCard item={item} key={item._id} />;
             })}

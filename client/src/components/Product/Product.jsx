@@ -37,13 +37,13 @@ const Product = () => {
    return (
       <div>
          <MultipleSelect setRating={setRating} setPrice={setPrice} />
-         <div className=" grid grid-cols-4 flex-wrap px-10 gap-10 py-7 bg-[#edf2f4] mt-7 rounded-2xl overflow-hidden">
+         <div className=" grid grid-cols-4 flex-wrap px-10 gap-10 py-7 bg-[#edf2f4] mt-7 rounded-2xl overflow-hidden md:grid-cols-2 sm:grid-cols-1 md:px-3 md:py-4 md:mt-3 sm:gap-2">
             {[...payload].map((item) => {
                let result =
                   payload.length === 0 ? (
                      <span className="text-4xl">Không có sản phẩm nào nữa</span>
                   ) : (
-                     <CardProduct item={item}  key={item._id} />
+                     <CardProduct item={item} key={item._id} />
                   );
                return result;
             })}

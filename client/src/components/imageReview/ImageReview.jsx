@@ -42,7 +42,7 @@ const ImageReview = () => {
                   className="absolute right-0  text-4xl m-7"
                   onClick={handleCloseReview}
                />
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex overflow-hidden select-none h-[60vh] max-w-[650px] w-full ">
+               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex overflow-hidden select-none h-[60vh] max-w-[650px] w-full sm:max-w-[300px] sm:max-h-[40vh]">
                   <img
                      alt=""
                      src={itemImg[index]}

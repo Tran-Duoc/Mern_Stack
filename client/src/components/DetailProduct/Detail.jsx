@@ -33,16 +33,16 @@ const Detail = () => {
    };
 
    return (
-      <div className="h-[60vh] bg-[#edf2f4] grid grid-cols-[400px_auto] grid-rows-1  px-10 py-20 gap-10 mt-7 rounded-2xl overflow-hidden">
-         <div className="shadow-inner rounded-2xl overflow-hidden p-10 border-4">
+      <div className="h-[60vh] bg-[#edf2f4] grid grid-cols-[400px_auto] grid-rows-1  px-10 py-20 gap-10 mt-7 rounded-2xl overflow-hidden sm:grid-rows-[250px_auto] sm:grid-cols-1 sm:h-full md:px-3 md:py-4 md:gap-2 sm:-mt-3">
+         <div className="shadow-inner rounded-2xl overflow-hidden p-10 border-4 md:p-3">
             <img
                alt=""
                src={`${information.image}`}
                className="w-full h-full"
             />
          </div>
-         <div className="flex flex-col items-start bg-[#edf2f4]/80 shadow-inner border-4 rounded-2xl overflow-hidden  p-10">
-            <span className="text-xl mb-5 font-semibold uppercase">
+         <div className="flex flex-col items-start bg-[#edf2f4]/80 shadow-inner border-4 rounded-2xl overflow-hidden  p-10 md:p-5">
+            <span className="text-xl mb-5 font-semibold uppercase ">
                {information.name}
             </span>
             <div className="detail">

@@ -5,8 +5,8 @@ import { AiFillTwitterCircle, AiFillYoutube } from "react-icons/ai";
 
 const Footer = () => {
    return (
-      <div className="flex flex-col bg-[#edf2f4] mt-8 overflow-hidden rounded-2xl text-center">
-         <div className="flex items-start justify-between text-left py-5 px-10">
+      <div className="flex flex-col bg-[#edf2f4] mt-8 overflow-hidden rounded-2xl text-center md:mt-3">
+         <div className="flex items-start justify-between text-left py-5 px-10 sm:flex-col sm:gap-5 md:px-3 ">
             <div>
                <span className="footer_title">Hỗ trợ - dịch vụ</span>
                <ul className="footer_list">
@@ -32,7 +32,7 @@ const Footer = () => {
                </ul>
             </div>
             <div>
-               <div className="text-4xl">
+               <div className="text-4xl sm:flex sm:gap-10 ">
                   <BsFacebook className="footer_social text-blue-500" />
                   <AiFillTwitterCircle className="footer_social text-blue-400 " />
                   <AiFillYoutube className="footer_social text-red-600" />
