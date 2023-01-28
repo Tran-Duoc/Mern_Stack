@@ -20,11 +20,7 @@ const Home = ({ data }) => {
    }, [getData]);
    return (
       <>
-         <div
-            className={`${
-               window.innerWidth < 768 ? "h-[60vh] mt-8" : "h-[35vh] mt-4"
-            } rounded-2xl overflow-hidden sm:h-[30vh] sm:mt-0`}
-         >
+         <div className="rounded-2xl overflow-hidden sm:h-[30vh] sm:mt-0 h-[60vh] mt-8 md:h-[40vh] md:mt-4" >
             <Swiper
                spaceBetween={30}
                centeredSlides={true}
