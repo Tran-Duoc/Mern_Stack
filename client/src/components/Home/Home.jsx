@@ -81,7 +81,7 @@ const Home = ({ data }) => {
                      slidesPerView: 3,
                   },
                   1400: {
-                     slidesPerView: 5,
+                     slidesPerView: 4,
                      spaceBetween: 5,
                   },
                }}

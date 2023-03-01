@@ -13,29 +13,31 @@ import ImageReview from "./components/imageReview/ImageReview";
 import Cart from "./components/cart/Cart";
 import Admin from "./components/admin/Admin";
 import EditForm from "./components/EditForm/EditForm";
+import PostUser from "./components/PostUser/PostUser";
 
 function App() {
-   const { isActive } = useContext(AppContext);
-   const { isActiveRes } = useContext(AppContext);
-   const { isActiveEditForm } = useContext(AppContext);
-   return (
-      <div className="bg-[#dee2e6] min-h-screen px-[8%] pt-32 md:px-5 ">
-         <Navbar />
+  const { isActive } = useContext(AppContext);
+  const { isActiveRes } = useContext(AppContext);
+  const { isActiveEditForm } = useContext(AppContext);
+  return (
+    <div className="bg-[#dee2e6] min-h-screen px-[8%] pt-32 md:px-5 ">
+      <Navbar />
 
-         <Routes>
-            <Route path="/" element={<Home data={data} />} />
-            <Route path="/product" element={<Product />} />
-            <Route path="/detail/:id" element={<Detail />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/config" element={<Admin />} />
-         </Routes>
-         <Footer />
-         {isActive ? <Login /> : ""}
-         {isActiveRes ? <Register /> : ""}
-         {isActiveEditForm ? <EditForm /> : ""}
-         <ImageReview />
-      </div>
-   );
+      <Routes>
+        <Route path="/" element={<Home data={data} />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/config" element={<Admin />} />
+        <Route path="/post" element={<PostUser />} />
+      </Routes>
+      <Footer />
+      {isActive ? <Login /> : ""}
+      {isActiveRes ? <Register /> : ""}
+      {isActiveEditForm ? <EditForm /> : ""}
+      <ImageReview />
+    </div>
+  );
 }
 
 export default App;
